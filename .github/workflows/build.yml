@@ -1,4 +1,4 @@
-name: Build APK
+name: Build Release APK
 
 on:
   push:
@@ -27,20 +27,11 @@ jobs:
       with:
         gradle-version: '8.3'
 
-    - name: Build Debug APK
-      run: gradle assembleDebug
-
     - name: Build Release APK
       run: gradle assembleRelease
-
-    - name: Upload Debug APK
-      uses: actions/upload-artifact@v4
-      with:
-        name: fcgame-debug
-        path: app/build/outputs/apk/debug/*.apk
 
     - name: Upload Release APK
       uses: actions/upload-artifact@v4
       with:
-        name: fcgame-release
+        name: FC游戏合集-release
         path: app/build/outputs/apk/release/*.apk
